@@ -20,16 +20,26 @@ jobs:
       - name: list directiories
         run: dir
       - name: Install frontend dependencies
-        run: npm install --prefix frontend
+        run: |
+          cd frontend
+          npm run 
       # Frontend lint, test, build
       - name: Check frontend style
-        run: npm run lint --prefix frontend
+        run: |
+          cd frontend
+          npm run lint
       - name: Run frontend tests
-        run: npm run test --prefix frontend
+        run: |
+          cd frontend
+          npm run test
       - name: Build frontend
-        run: npm run build --prefix frontend
+        run: |
+          cd frontend
+          npm run build
       - name: install backend dependencies
-        run: npm install --prefix backend
+        run: |
+          cd backend
+          npm install
   tag_release:
     needs: [simple_deployment_pipeline]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(join(github.event.commits.*.message), '#skip')
