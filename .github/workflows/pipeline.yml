@@ -22,7 +22,7 @@ jobs:
       - name: Install frontend dependencies
         run: |
           cd frontend
-          npm run 
+          npm install
       # Frontend lint, test, build
       - name: Check frontend style
         run: |
