@@ -86,7 +86,7 @@ const Blog = (props) => {
         props.setSuccessMessage(null);
       }, 5000);
     } catch (exception) {
-      props.setErrorMessage('Can\'t update blog likes');
+      props.setErrorMessage('Can\'t update blogg likes');
       setTimeout(() => {
         props.setErrorMessage(null);
       }, 5000);
