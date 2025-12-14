@@ -1,36 +1,36 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
-    username: {
-      type: String,
-      required: true,
-      unique: true
-    },
-    passwordHash: String,
-    name: String,
-    blogs: [
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  passwordHash: String,
+  name: String,
+  blogs: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Blog'
-    }
-  ]
-})
+      ref: "Blog",
+    },
+  ],
+});
 
-userSchema.set('toJSON', {
+userSchema.set("toJSON", {
   transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString()
-    delete returnedObject._id
-    delete returnedObject.__v
-    delete returnedObject.password
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
+    delete returnedObject.password;
     // the passwordHash should not be revealed
-    delete returnedObject.passwordHash
-  }
-})
+    delete returnedObject.passwordHash;
+  },
+});
 
-const User = mongoose.model("User", userSchema)
+const User = mongoose.model("User", userSchema);
 
 User.syncIndexes().then(() => {
-  console.log('Indexes synced')
-})
+  console.log("Indexes synced");
+});
 
-module.exports = User
+module.exports = User;
