@@ -23,7 +23,7 @@ jobs:
         run: |
           cd frontend
           npm install
-      # Frontend lint, test, build
+      # Frontend lint, test, buildd
       - name: Check frontend style
         run: |
           cd frontend
