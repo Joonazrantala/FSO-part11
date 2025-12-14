@@ -2,10 +2,10 @@
 set -e
 
 echo "Installing frontend dependencies..."
-npm install --prefix ../bloglist-frontend --production=false
+npm install --prefix ../frontend --production=false
 
 echo "Building frontend for production..."
-npm run build --prefix ../bloglist-frontend
+npm run build --prefix ../frontend
 
 echo "Installing backend dependencies..."
 npm install
