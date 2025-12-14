@@ -21,9 +21,7 @@ app.use(tokenExtractor);
 
 logger.info('connecting to:', config.MONGODB_URI);
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../bloglist-frontend/dist')));
-}
+
 
 mongoose
   .connect(config.MONGODB_URI, {
@@ -39,6 +37,16 @@ mongoose
 app.use('/api/blogs', blogsRouter);
 app.use('/api', usersRouter);
 app.use('/api/login', loginRouter);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+  
+  app.get('*', (req, res) => {
+    if (!req.path.startsWith('/api')) {
+      res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+    }
+  });
+}
 
 if (process.env.NODE_ENV === 'test') {
   const testRouter = require('./controllers/testreset.js');
