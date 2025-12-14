@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import blogService from './services/blogs';
 import loginService from './services/login';
-import Notification from './components/notification';
-import Togglable from './components/togglable';
-import NewBlogForm from './components/newBlogForm';
+import Notification from './components/Notification';
+import Togglable from './components/Togglable';
+import NewBlogForm from './components/NewBlogForm';
 import Blog from './components/Blog';
 
 const App = () => {
