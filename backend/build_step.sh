@@ -8,7 +8,7 @@ echo "Building frontend for production..."
 npm run build --prefix ../frontend
 
 echo "Installing backend dependencies..."
-npm install
+npm install --production=false
 
 echo "Starting backend in production..."
 NODE_ENV=production npm start
