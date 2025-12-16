@@ -1,4 +1,4 @@
-name: ping server for health check
+name: ping server for health checkk
 
 on:
   schedule:

@@ -137,7 +137,7 @@ const App = () => {
       <h1>Blogs</h1>
       <Notification message={successMessage} type="success" />
       <Notification message={errorMessage} type="error" />
-      {!user && <h2>Log in to application</h2>}
+      {!user && <h2>Log in to application USE username: username password: password</h2>}
 
       {!user && loginForm()}
       {user && (
